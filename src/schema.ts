@@ -8,7 +8,7 @@ const allTypes: any[] = fileLoader(path.join(__dirname, "./api/**/*.graphql"));
 
 const allResolvers: any[] = fileLoader(
   // 컴파일 하면 에러가 나서 일단 String 대신 any로 둠
-  path.join(__dirname, "./api/**/*.resolves.*")
+  path.join(__dirname, "./api/**/*.resolvers.*")
 );
 
 const mergedTypes = mergeTypes(allTypes);
