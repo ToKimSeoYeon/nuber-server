@@ -17,6 +17,9 @@ type User {
   isTaken: Boolean!
   chat: Chat
   message: [Message]
+  verification: [Verifications]
+  ridesAsPassenger: [Ride]
+  rudesAsDriver: [Ride]
   lastLng: Float
   lastLat: Float
   lastOrientation: Float
