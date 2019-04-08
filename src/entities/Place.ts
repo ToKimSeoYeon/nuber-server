@@ -1,6 +1,5 @@
 import {
   BaseEntity,
-  BeforeInsert,
   Column,
   CreateDateColumn,
   Entity,
@@ -9,7 +8,7 @@ import {
 } from "typeorm";
 
 @Entity()
-class Verification extends BaseEntity {
+class Place extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
   @Column({ type: "text" })
@@ -30,4 +29,4 @@ class Verification extends BaseEntity {
   @CreateDateColumn() createdAt: string;
   @UpdateDateColumn() updatedAt: string;
 }
-export default Verification;
+export default Place;
