@@ -58,17 +58,23 @@ class User extends BaseEntity {
   @Column({ type: "double precision", default: 0 })
   lastOrientation: number;
 
+  @CreateDateColumn() createdAt: string;
+  @UpdateDateColumn() updatedAt: string;
+
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
-  @CreateDateColumn() createdAt: string;
-  @UpdateDateColumn() updatedAt: string;
+
+  public comparePassword(password: string): Promise<boolean> {
+    return bcrypt.compare(password, this.password);
+  }
 
   @BeforeInsert()
   @BeforeUpdate()
   async savePassword(): Promise<void> {
     if (this.password) {
       const hashedPassword = await this.hashPassword(this.password);
+      this.password = hashedPassword;
     }
   }
 
